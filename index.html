@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Phép Tính</title>
+</head>
+<body>
+
+    <h2>Phép tính</h2>
+
+    <!-- Input for the first number -->
+    <label for="num1">Nhập số:</label>
+    <input type="number" id="num1">
+
+    <!-- Input for the second number -->
+    <label for="num2">Nhập số:</label>
+    <input type="number" id="num2" >
+
+    <br><br>
+
+    <!-- Buttons for the four operations -->
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">×</button>
+    <button onclick="calculate('/')">÷</button>
+
+    <br><br>
+
+    <!-- Result section -->
+    <label for="result">Kết quả:</label>
+    <span id="result">0</span>
+
+    <!-- JavaScript to handle calculations -->
+    <script>
+        function calculate(operation) {
+            // Get the values from input fields
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result;
+
+            // Perform calculation based on the operation
+            if (operation === '+') {
+                result = num1 + num2;
+            } else if (operation === '-') {
+                result = num1 - num2;
+            } else if (operation === '*') {
+                result = num1 * num2;
+            } else if (operation === '/') {
+                if (num2 === 0) {
+                    result = 'Cannot divide by zero';
+                } else {
+                    result = num1 / num2;
+                }
+            }
+
+            // Display the result
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+
+</body>
+</html>
